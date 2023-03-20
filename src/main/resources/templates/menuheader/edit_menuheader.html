@@ -1,0 +1,81 @@
+<form  th:action="@{/api/usrmgmnt/v1/menuheader/edit/{id} (id=${menuheader.idMenuHeader})}" th:object = "${menuheader}" method="POST" id="ubahMenuHeader"><!--	ID FORM TIDAK BOLEH SAMA DENGAN ID MODALS DI FRAGMENT -->
+	<input type="hidden" value="fa04e40df0f7fbc7b74929b05febc40b" /><!-- form generate id security of front end -->
+	<div th:if="${#fields.hasErrors('global')}" class="error-box error-danger" >
+		<p th:each="err : ${#fields.errors('global')}" th:text="${err}"  class="error"/>
+	</div>
+	<div class ="form-group">
+		<label> Nama Menu Header </label>
+		<input
+				type = "text"
+				name = "namaMenuHeader"
+				th:field = "*{namaMenuHeader}"
+				class = "form-control"
+				placeholder="Masukkan Nama Menu Header"
+		/>
+		<ul>
+			<li th:each="err : ${#fields.errors('namaMenuHeader')}" th:text="${err}" class="error" />
+		</ul>
+	</div>
+
+	<div class ="form-group">
+		<label> Descrition Menu Header </label>
+		<input
+				type = "text"
+				name = "deskripsiMenuHeader"
+				th:field = "*{deskripsiMenuHeader}"
+				class = "form-control"
+				placeholder="Masukan Deskripsi Menu Header"
+		/>
+		<ul>
+			<li th:each="err : ${#fields.errors('deskripsiMenuHeader')}" th:text="${err}" class="error" />
+		</ul>
+	</div>
+
+
+
+	<div class = "modal-footer">
+		<button type="submit" class = "btn btn-primary">
+			Submit
+		</button>
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	</div>
+</form>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+    $("#ubahMenuHeader").submit(function(event) {
+          event.preventDefault(); //prevent default action
+          let post_url = $(this).attr("action"); //get form action url
+          let request_method = $(this).attr("method"); //get form GET/POST method
+          let form_data = $(this).serialize(); //Encode form elements for submission
+          $.ajax({
+              url: post_url,
+              type: request_method,
+              data: form_data
+            }).done(function(response) { //
+            let pattern = /8c5712e1f1477b248165356b4704139e/i;
+			let result = response.match(pattern);
+            if(result)
+            {
+				try
+            	{
+					$("#server-results-edit").html(response);
+            	}
+            	catch(r)
+            	{
+					console.log('aman')
+            	}
+            }
+            else
+            {
+				$('#editMenuHeader').modal('hide');
+				confirm("DATA BERHASIL DIUBAH");
+				location.reload();
+            }
+
+            });
+        });
+
+/*]]>*/
+</script>

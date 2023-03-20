@@ -1,0 +1,117 @@
+.banner {
+  display: flex;
+  /* border: solid gray 1px; */
+  width: 100%;
+  height: 800px;
+  background-image: url("https://img-icf.informa.co.id/lib/images/banner/main-banner.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text-promo {
+  position: absolute;
+  /* margin: 40px; */
+  border-width: 50%;
+  border-text-align: top-sm-center;
+  border-width: 20px;
+  border-style: solid;
+  border-top-color: white;
+  border-right-color: white;
+  border-bottom-color: white;
+  border-left-color: white;
+  background: -webkit-linear-gradient(left, rgba(39,214,230,1) 0%, rgba(152,235,97,1) 50%, rgba(248,80,50,1) 85%);
+  color:transparent;
+  background-clip: text;
+  font-size: 3.5em;
+  font-weight: bold;
+  line-height: 1em;
+  color: black;
+}
+
+.text-desc {
+  border-width: 50%;
+  border-text-align: down-left-center;
+  border-width: 10px;
+  border-style: solid;
+  border-top-color: red;
+  border-right-color: DarkGoldenRod;
+  border-bottom-color: white;
+  border-left-color: Violet;
+  text-align: left;
+  color: blue;
+  margin-top: 20px;
+}
+
+.fitur {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+  /* border: 1px solid gray; */
+}
+
+.fitur .wrapper {
+  display: flex;
+  width: 1024px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.fitur .wrapper .card {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 50px 0;
+  margin: 20px 10px;
+  /* border: 1px solid gray; */
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 25%;
+}
+
+.card h4 {
+  width: 1em;
+  /* border: 1px solid gray; */
+  width: 30%;
+}
+
+.fitur h2 {
+  font-size: 2em;
+  text-align: center;
+  margin: 15px 0;
+}
+/* footer */
+#footer{
+    width: 100%;
+    background-color: black;
+    margin-top: 100px;
+}
+#footer h1{
+    color: white;
+    padding-top: 30px;
+}
+#footer p{
+    color: white;
+}
+.icons i{
+    color: rgba(238,224,208);
+    font-size 30px;
+    cursor: po:inter;
+}
+.copyright{
+    color: white;
+    margin-top: 20px;
+}
+.credite{
+    color: white;
+}
+/* footer */

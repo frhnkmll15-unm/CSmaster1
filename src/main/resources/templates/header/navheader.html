@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+
+<div class="navbar" th:fragment="navapalah">
+    <div class="wrapper">
+		<div> 
+			<img src="https://innola.co.id/wp-content/uploads/2018/10/DEKASARI.png">
+		</div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a th:href="@{/api/check/index1/}">Home</a>
+                </li>
+				<li>
+                <th:block th:if="${USR_IDZ != null}" th:utext="${HTML_MENUZ}"/>
+				</li>
+                <li>
+                    <a th:if="${USR_IDZ != null}" href="/api/check/logout">logout</a>
+                </li>
+                <li>
+                    <a th:if="${USR_IDZ == null}" href="/api/check/register">Register</a>
+                </li>
+                <li>
+                    <a th:if="${USR_IDZ == null}" href="/api/check/signin">Sign In</a>
+                </li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+			    </li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<button>Keluhan Anda</button>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+				<li>
+					<a></a>
+				</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

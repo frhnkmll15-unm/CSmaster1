@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Product</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+            crossorigin="anonymous"></script>
+    <link th:href="@{/styles/style.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/navbar.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/banner.css}" rel="stylesheet"/>
+    <script th:src="@{/js/modalz.js}"></script>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+<div th:replace="header/navheader::navapalah"></div>
+<div class="container">
+    <form th:action="@{/api/product/new}" th:object="${product}" method="POST" id="buatProduct"
+          enctype="multipart/form-data">
+        <!--	ID FORM TIDAK BOLEH SAMA DENGAN ID MODALS DI FRAGMENT -->
+        <input type="hidden" value="ba373d733ada7137826035e1fa01008b"/><!-- form generate id security of front end -->
+
+        <div th:if="${#fields.hasErrors('global')}" class="error-box error-danger">
+            <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error"/>
+        </div>
+        <div class="form-group">
+            <label> Kode Product </label>
+            <input
+                    type="text"
+                    name="kodeProduct"
+                    th:field="*{kodeProduct}"
+                    class="form-control"
+                    placeholder="Masukkan Kode Produk"
+            />
+            <ul>
+                <li th:each="err : ${#fields.errors('kodeProduct')}" th:text="${err}" class="error"/>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label> Nama Product </label>
+            <input
+                    type="text"
+                    name="namaProduct"
+                    th:field="*{namaProduct}"
+                    class="form-control"
+                    placeholder="Masukkan Nama Produk"
+            />
+            <ul>
+                <li th:each="err : ${#fields.errors('namaProduct')}" th:text="${err}" class="error"/>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label> Merk Product </label>
+            <input
+                    type="text"
+                    name="merkProduct"
+                    th:field="*{merkProduct}"
+                    class="form-control"
+                    placeholder="Masukkan Merk Produk"
+            />
+            <ul>
+                <li th:each="err : ${#fields.errors('merkProduct')}" th:text="${err}" class="error"/>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label> Deskripsi Product </label>
+            <input
+                    type="text"
+                    name="description"
+                    th:field="*{description}"
+                    class="form-control"
+                    placeholder="Masukkan Deskripsi Produk"
+            />
+            <ul>
+                <li th:each="err : ${#fields.errors('description')}" th:text="${err}" class="error"/>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label> Category </label>
+            <select name="category" th:field="*{category}" class="form-control">
+                <option value="0">select category</option>
+                <option th:each="category : ${categories}" th:value="${category.idCategory}"
+                        th:text="${category.namaCategory}"></option>
+            </select>
+            <ul>
+                <li th:each="err : ${#fields.errors('image')}" th:text="${err}" class="error"/>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label> Image Product </label>
+            <input
+                    type="file"
+                    th:field="*{image}"
+                    class="form-control"
+                    placeholder="Masukkan Image Produk"
+            />
+            <ul>
+                <li th:each="err : ${#fields.errors('image')}" th:text="${err}" class="error"/>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+
+</div>
+
+<!--<script th:inline="javascript">-->
+<!--/*<![CDATA[*/-->
+
+<!--    $("#buatProduct").submit(function(event) {-->
+<!--          event.preventDefault(); //prevent default action-->
+<!--          let post_url = $(this).attr("action"); //get form action url-->
+<!--          let request_method = $(this).attr("method"); //get form GET/POST method-->
+<!--          let form_data = $(this).serialize(); //Encode form elements for submission-->
+<!--          $.ajax({-->
+<!--              url: post_url,-->
+<!--              type: request_method,-->
+<!--              data: form_data-->
+<!--            }).done(function(response) { //-->
+<!--            let pattern = /ba373d733ada7137826035e1fa01008b/i;-->
+<!--			let result = response.match(pattern);-->
+<!--            if(result)-->
+<!--            {-->
+<!--				$("#server-results").html(response);-->
+<!--            }-->
+<!--            else-->
+<!--            {-->
+<!--				$('#productAdd').modal('hide');-->
+<!--				confirm("DATA BERHASIL DISIMPAN");-->
+<!--            }-->
+
+<!--            });-->
+<!--        });-->
+
+<!--/*]]>*/-->
+
+
+<!--</script>-->
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script><!--wajib ada untuk form-->
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
